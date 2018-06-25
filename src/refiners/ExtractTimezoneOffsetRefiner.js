@@ -16,7 +16,7 @@ exports.Refiner = function ExtractTimezoneOffsetRefiner() {
 
         results.forEach(function(result) {
 
-            if (result.start.isCertain('timezoneOffset')) {
+            if (result.start.isCertain('timezoneName')) {
                 return;
             }
 
@@ -27,16 +27,16 @@ exports.Refiner = function ExtractTimezoneOffsetRefiner() {
 
             var hourOffset = parseInt(match[TIMEZONE_OFFSET_HOUR_OFFSET_GROUP]);
             var minuteOffset = parseInt(match[TIMEZONE_OFFSET_MINUTE_OFFSET_GROUP]);
-            var timezoneOffset = hourOffset * 60 + minuteOffset;
+            var timezoneName = hourOffset * 60 + minuteOffset;
             if (match[TIMEZONE_OFFSET_SIGN_GROUP] === '-') {
-                timezoneOffset = -timezoneOffset;
+                timezoneName = -timezoneName;
             }
 
             if (result.end != null) {
-                result.end.assign('timezoneOffset', timezoneOffset);
+                result.end.assign('timezoneName', timezoneName);
             }
 
-            result.start.assign('timezoneOffset', timezoneOffset);
+            result.start.assign('timezoneName', timezoneName);
             result.text += match[0];
             result.tags['ExtractTimezoneOffsetRefiner'] = true;
         });

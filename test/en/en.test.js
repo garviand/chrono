@@ -46,7 +46,7 @@ test("Test - Implying timezeon", function() {
         expect(expected.getTime()).toBeCloseTo(result.start.date().getTime())
 
         var impliedResult = chrono.parse('Sat Nov 05 1994 22:45:30')[0];
-        impliedResult.start.imply('timezoneOffset', 540);
+        impliedResult.start.imply('timezoneName', 540);
 
         expect(expected.getTime()).toBeCloseTo(impliedResult.start.date().getTime());
 });

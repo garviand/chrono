@@ -535,36 +535,36 @@ test("Test - Timezone extraction", function() {
     var text = "friday at 2 pm";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text);
-    expect(result.start.isCertain('timezoneOffset')).toBe(false);
-    expect(!result.start.get('timezoneOffset')).not.toBeNull();
+    expect(result.start.isCertain('timezoneName')).toBe(false);
+    expect(!result.start.get('timezoneName')).not.toBeNull();
 
 
     var text = "friday at 2 pm EST";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text);
-    expect(result.start.isCertain('timezoneOffset')).toBe(true);
-    expect(result.start.get('timezoneOffset')).toBe(-300);
+    expect(result.start.isCertain('timezoneName')).toBe(true);
+    expect(result.start.get('timezoneName')).toBe(-300);
 
 
     var text = "friday at 2 pm est";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text);
-    expect(result.start.isCertain('timezoneOffset')).toBe(true);
-    expect(result.start.get('timezoneOffset')).toBe(-300);
+    expect(result.start.isCertain('timezoneName')).toBe(true);
+    expect(result.start.get('timezoneName')).toBe(-300);
 
 
     var text = "friday at 2 pm establish ...";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe('friday at 2 pm');
-    expect(result.start.isCertain('timezoneOffset')).toBe(false);
-    expect(!result.start.get('timezoneOffset')).not.toBeNull();
+    expect(result.start.isCertain('timezoneName')).toBe(false);
+    expect(!result.start.get('timezoneName')).not.toBeNull();
 
 
     var text = "friday at 2 pm I will do something";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe('friday at 2 pm');
-    expect(result.start.isCertain('timezoneOffset')).toBe(false);
-    expect(!result.start.get('timezoneOffset')).not.toBeNull()
+    expect(result.start.isCertain('timezoneName')).toBe(false);
+    expect(!result.start.get('timezoneName')).not.toBeNull()
 });
 
 
@@ -573,15 +573,15 @@ test("Test - Timezone extraction override", function() {
     var text = "friday at 2 pm IST";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text);
-    expect(result.start.isCertain('timezoneOffset')).toBe(true);
-    expect(result.start.get('timezoneOffset')).toBe(330);
+    expect(result.start.isCertain('timezoneName')).toBe(true);
+    expect(result.start.get('timezoneName')).toBe(330);
 
     var options = { timezones: { 'IST' : 60 }};
     var text = "friday at 2 pm IST";
     var result = chrono.parse(text, new Date(2016, 3, 28), options)[0];
     expect(result.text).toBe(text);
-    expect(result.start.isCertain('timezoneOffset')).toBe(true);
-    expect(result.start.get('timezoneOffset')).toBe(60);
+    expect(result.start.isCertain('timezoneName')).toBe(true);
+    expect(result.start.get('timezoneName')).toBe(60);
 });
 
 test("Test - Milliseconds", function() {

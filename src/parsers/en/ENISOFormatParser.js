@@ -76,7 +76,7 @@ exports.Parser = function ENISOFormatParser(){
 
             if (match[TZD_HOUR_OFFSET_GROUP] == null) {
 
-                result.start.assign('timezoneOffset', 0);
+                result.start.assign('timezoneName', 0);
             } else {
 
                 var minuteOffset = 0;
@@ -91,7 +91,7 @@ exports.Parser = function ENISOFormatParser(){
                     offset += minuteOffset;
                 }
 
-                result.start.assign('timezoneOffset', offset);
+                result.start.assign('timezoneName', offset);
             }
         }
         

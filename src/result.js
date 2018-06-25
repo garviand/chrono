@@ -81,8 +81,8 @@ ParsedComponents.prototype.isCertain = function(component) {
 
 ParsedComponents.prototype.isPossibleDate = function() {
     var dateMoment = this.moment();
-    if (this.isCertain('timezoneOffset')) {
-        dateMoment.utcOffset(this.get('timezoneOffset'))
+    if (this.isCertain('timezoneName')) {
+        dateMoment.utcOffset(this.get('timezoneName'))
     }
 
     if (dateMoment.get('year') != this.get('year')) return false;
@@ -112,8 +112,8 @@ ParsedComponents.prototype.moment = function() {
 
     // Javascript Date Object return minus timezone offset
     var currentTimezoneOffset = dateMoment.utcOffset();
-    var targetTimezoneOffset = this.get('timezoneOffset') !== undefined ? 
-        this.get('timezoneOffset') : currentTimezoneOffset;
+    var targetTimezoneOffset = this.get('timezoneName') !== undefined ? 
+        this.get('timezoneName') : currentTimezoneOffset;
 
     var adjustTimezoneOffset = targetTimezoneOffset - currentTimezoneOffset;
     dateMoment.add(-adjustTimezoneOffset, 'minutes');

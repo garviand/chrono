@@ -828,47 +828,47 @@ test("Test - Timezone extraction", function() {
     var text = "Vendredi à 2 pm";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text)
-    expect(result.start.isCertain('timezoneOffset')).toBe(false)
-    expect(!result.start.get('timezoneOffset')).not.toBeNull()
+    expect(result.start.isCertain('timezoneName')).toBe(false)
+    expect(!result.start.get('timezoneName')).not.toBeNull()
 
 
     var text = "vendredi 2 pm EST";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text)
-    expect(result.start.isCertain('timezoneOffset')).toBe(true)
-    expect(result.start.get('timezoneOffset')).toBe(-300)
+    expect(result.start.isCertain('timezoneName')).toBe(true)
+    expect(result.start.get('timezoneName')).toBe(-300)
 
     var text = "vendredi 15h CET";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text)
-    expect(result.start.isCertain('timezoneOffset')).toBe(true)
-    expect(result.start.get('timezoneOffset')).toBe(60)
+    expect(result.start.isCertain('timezoneName')).toBe(true)
+    expect(result.start.get('timezoneName')).toBe(60)
 
     var text = "vendredi 15h cest";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text)
-    expect(result.start.isCertain('timezoneOffset')).toBe(true)
-    expect(result.start.get('timezoneOffset')).toBe(120)
+    expect(result.start.isCertain('timezoneName')).toBe(true)
+    expect(result.start.get('timezoneName')).toBe(120)
 
     var text = "Vendredi à 2 pm est";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe(text)
-    expect(result.start.isCertain('timezoneOffset')).toBe(true)
-    expect(result.start.get('timezoneOffset')).toBe(-300)
+    expect(result.start.isCertain('timezoneName')).toBe(true)
+    expect(result.start.get('timezoneName')).toBe(-300)
 
 
     var text = "Vendredi à 2 pm j'ai rdv...";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe('Vendredi à 2 pm')
-    expect(result.start.isCertain('timezoneOffset')).toBe(false)
-    expect(!result.start.get('timezoneOffset')).not.toBeNull()
+    expect(result.start.isCertain('timezoneName')).toBe(false)
+    expect(!result.start.get('timezoneName')).not.toBeNull()
 
 
     var text = "Vendredi à 2 pm je vais faire quelque chose";
     var result = chrono.parse(text, new Date(2016, 3, 28))[0];
     expect(result.text).toBe('Vendredi à 2 pm')
-    expect(result.start.isCertain('timezoneOffset')).toBe(false)
-    expect(!result.start.get('timezoneOffset')).not.toBeNull()
+    expect(result.start.isCertain('timezoneName')).toBe(false)
+    expect(!result.start.get('timezoneName')).not.toBeNull()
 })
 
 

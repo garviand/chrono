@@ -32,7 +32,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(8)
         expect(result.start.get('minute')).toBe(15)
         expect(result.start.get('second')).toBe(30)
-        expect(result.start.get('timezoneOffset')).toBe(-330)
+        expect(result.start.get('timezoneName')).toBe(-330)
         expect(result.text).toBe(text)
         
         var resultDate = result.start.date();
@@ -54,7 +54,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(13)
         expect(result.start.get('minute')).toBe(15)
         expect(result.start.get('second')).toBe(30)
-        expect(result.start.get('timezoneOffset')).toBe(0)
+        expect(result.start.get('timezoneName')).toBe(0)
         expect(result.text).toBe(text)
         
         var resultDate = result.start.date();
@@ -76,7 +76,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(12)
         expect(result.start.get('minute')).toBe(0)
         expect(result.start.get('second')).toBe(0)
-        expect(result.start.get('timezoneOffset')).toBe(0)
+        expect(result.start.get('timezoneName')).toBe(0)
         expect(result.text).toBe(text)
         
         var resultDate = result.start.date();
@@ -99,7 +99,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(13)
         expect(result.start.get('minute')).toBe(15)
         expect(result.start.get('second')).toBe(30)
-        expect(result.start.get('timezoneOffset')).toBe(0)
+        expect(result.start.get('timezoneName')).toBe(0)
         expect(result.text).toBe(text)
         
         var resultDate = result.start.date();
@@ -121,7 +121,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(13)
         expect(result.start.get('minute')).toBe(15)
         expect(result.start.get('second')).toBe(30)
-        expect(result.start.get('timezoneOffset')).toBe(0)
+        expect(result.start.get('timezoneName')).toBe(0)
         expect(result.text).toBe(text)
         
         var resultDate = result.start.date();
@@ -144,7 +144,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(13)
         expect(result.start.get('minute')).toBe(15)
         expect(result.start.get('second')).toBe(30)
-        expect(result.start.get('timezoneOffset')).toBe(0)
+        expect(result.start.get('timezoneName')).toBe(0)
 
         expect(result.index).toBe(2)
         expect(result.text).toBe('1994-11-05T13:15:30Z')
@@ -168,7 +168,7 @@ test("Test - Single Expression", function() {
         expect(result.start.get('hour')).toBe(23)
         expect(result.start.get('minute')).toBe(45)
         expect(result.start.get('second')).toBe(0)
-        expect(result.start.get('timezoneOffset')).toBe(60)
+        expect(result.start.get('timezoneName')).toBe(60)
 
         expect(result.text).toBe('2016-05-07T23:45:00.487+01:00')
 

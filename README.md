@@ -122,10 +122,10 @@ chrono.parseDate('Friday', referenceDate, { forwardDate: true });
 * `timezones` (Map) to override Chrono's default timezone abbriviation mapping. The value should be the timezone offset in minutes (between -720 to 720).
 
 ```js
-chrono.parse('Friday at 2 pm IST', refDate, { 'IST': 330 })[0].start.get('timezoneOffset');
+chrono.parse('Friday at 2 pm IST', refDate, { 'IST': 330 })[0].start.get('timezoneName');
 // 330 (IST – India Standard Time +0530)
 
-chrono.parse('Friday at 2 pm IST', refDate, { 'IST': 60 })[0].start.get('timezoneOffset');
+chrono.parse('Friday at 2 pm IST', refDate, { 'IST': 60 })[0].start.get('timezoneName');
 // 60 (IST - Irish Standard Time +0100)
 ```
 
@@ -165,7 +165,7 @@ A group of found date and time components (year, month, hour, etc). ParsedCompon
 ```js
 // Remove the timezone offset of a parsed date and then create the Date object
 var results = new chrono.parse('2016-03-08T01:16:07+02:00'); // Create new ParsedResult Object
-results[0].start.assign('timezoneOffset', 0); // Change value in ParsedComponents Object 'start'
+results[0].start.assign('timezoneName', 0); // Change value in ParsedComponents Object 'start'
 
 var d = results[0].start.date(); // Create a Date object
 d.toString(); // 'Tue Mar 08 2016 01:16:07 GMT+0000 (GMT)'
